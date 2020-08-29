@@ -10,6 +10,7 @@ int main() {
   int cells[5][5];
   int count;
   int input;
+  int times;
   for (int k = 0; k<5; k++) {
     for (int l = 0; l<5; l++) {
       while (true) {
@@ -24,50 +25,54 @@ int main() {
       }
     }
   }
-  for(int i = 0; i<5; i++){
-    for(int j = 0; j<5; j++){
-      if (cells[i][j] == 1) {
-        if (cells[i+1][j] == 1) {
-          count++;
-        }
-        if(cells[i-1][j] == 1) {
-          count++;
-        }
-        if(cells[i][j+1] == 1) {
-          count++;
-        }
-        if(cells[i][j-1] == 1) {
-          count++;
-        }
-        if(cells[i+1][j+1] == 1) {
-          count++;
-        }
-        if(cells[i-1][j+1] == 1) {
-          count++;
-        }
-        if(cells[i+1][j-1] == 1) {
-          count++;
-        }
-        if(cells[i-1][j-1] == 1) {
-          count++;
-        }
+  cout<<"How many iterations of cell updates would you like? >> ";
+  cin>>times;
+  for(int repeat = 0; repeat<times; repeat++){
+    for(int i = 0; i<5; i++){
+      for(int j = 0; j<5; j++){
+        if (cells[i][j] == 1) {
+          if (cells[i+1][j] == 1) {
+            count++;
+          }
+          if(cells[i-1][j] == 1) {
+            count++;
+          }
+          if(cells[i][j+1] == 1) {
+            count++;
+          }
+          if(cells[i][j-1] == 1) {
+            count++;
+          }
+          if(cells[i+1][j+1] == 1) {
+            count++;
+          }
+          if(cells[i-1][j+1] == 1) {
+            count++;
+          }
+          if(cells[i+1][j-1] == 1) {
+            count++;
+          }
+          if(cells[i-1][j-1] == 1) {
+            count++;
+          }
 
-        if (count <= 0) {
-          cells[i][j] = 0;
-          continue;
-        } else if (count >= 4) {
-          cells[i][j] = 0;
-        } else{
-          continue;
+          if (count <= 0) {
+            cells[i][j] = 0;
+            continue;
+          } else if (count >= 4) {
+            cells[i][j] = 0;
+          } else{
+            continue;
+          }
         }
       }
     }
-  }
-  for (int m = 0; m<5; m++) {
-    for (int n = 0; n<5; n++) {
-      cout<<cells[m][n]<<" ";
+    for (int m = 0; m<5; m++) {
+      for (int n = 0; n<5; n++) {
+        cout<<cells[m][n]<<" ";
+      }
+      cout<<"\n";
     }
-    cout<<"\n";
+    return 0;
   }
-  return 0;
 }
