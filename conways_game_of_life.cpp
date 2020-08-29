@@ -73,6 +73,7 @@ int main() {
       }
       cout<<"\n";
     }
-    return 0;
+    cout<<"--------";
   }
+  return 0;
 }
